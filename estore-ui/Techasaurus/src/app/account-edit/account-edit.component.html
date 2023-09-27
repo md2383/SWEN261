@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="account">
+        <div class="passwordForm">
+            <div class="title">
+                <h2>Change Password</h2>
+            </div>
+            <form class="form" [formGroup]="passwordForm" (ngSubmit)="update()">
+                <!-- Old password -->
+                <div class="inputContainer">
+                    <input type="password" class="input" formControlName="oldPassword" placeholder="Old Password" required>
+                    <label for="oldPassword" class="label">Old Password</label>
+                </div>
+                <!-- New password -->
+                <div class="inputContainer">
+                    <input type="password" class="input" formControlName="newPassword" placeholder="New Password" required>
+                    <label for="newPassword" class="label">New Password</label>
+                </div>
+                <!-- Confirm new password -->
+                <div class="inputContainer">
+                    <input type="password" class="input" formControlName="confirmPassword" placeholder="Confirm New Password" required>
+                    <label for="confirmPassword" class="label">Confirm New Password</label>
+                </div>
+                <button type="submit" class="submitBtn">Submit</button>    
+            </form>
+        </div>
+    </div>
+</div>

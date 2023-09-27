@@ -1,0 +1,88 @@
+<div class="container">
+    <!-- left-side navbar -->
+    <div class="left-side-navbar">
+        <div class="left-navbar-item">
+            <a routerLink="/account" routerLinkActive="active"><i class="fa fa-user"></i> Account</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/payment" routerLinkActive="active"><i class="fa fa-credit-card"></i> Payment Info</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/address" routerLinkActive="active"><i class="fa fa-map-marker"></i> Address</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/order-history" routerLinkActive="active"><i class="fa fa-history"></i> Order History</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/dashboard">Go Back</a>
+        </div>
+    </div>
+
+    <div class="addressForm">
+        <ng-container *ngIf="check(); else addressexists">
+            <div class="title">
+                <h2>Address</h2>
+            </div>
+            <form class="form" [formGroup]="addressForm" (ngSubmit)="updateAddress()">
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="street" placeholder="Street" required>
+                    <label for="street" class="label">Street</label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="city" placeholder="City" required>
+                    <label for="city" class="label">City</label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="state" placeholder="State" required>
+                    <label for="state" class="label">State</label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="houseNumber" placeholder="House Number" required>
+                    <label for="houseNumber" class="label">House Number</label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="zip" placeholder="Zip" required>
+                    <label for="zip" class="label">Zip</label>
+                </div>
+
+                <button type="submit" class="submitBtn">Submit</button>
+            </form>
+        </ng-container>
+        
+        <!-- Address Information -->
+        
+        <ng-template #addressexists>
+            <div class="address-container">
+                <div class="title">
+                    <h2>Address</h2>
+                </div>
+                <div>
+                    <div class="address">
+                        <div class="address-info-item">
+                            <span class="address-info-item-label">City: </span>
+                            <span class="address-info-item-value">{{account?.address?.city}}</span>
+                        </div>
+                        <div class="address-info-item">
+                            <span class="address-info-item-label">State: </span>
+                            <span class="address-info-item-value">{{account?.address?.state}}</span>
+                        </div>
+                        <div class="address-info-item">
+                            <span class="address-info-item-label">Street: </span>
+                            <span class="address-info-item-value">{{account?.address?.street}}</span>
+                        </div>
+                        <div class="address-info-item">
+                            <span class="address-info-item-label">Zip: </span>
+                            <span class="address-info-item-value">{{account?.address?.zip}}</span>
+                        </div>
+                        <button class="delete" (click)="deleteAddress()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

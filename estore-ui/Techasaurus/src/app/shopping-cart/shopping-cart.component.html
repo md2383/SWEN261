@@ -1,0 +1,32 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="title">
+        <h2>Shopping Cart</h2>
+    </div>
+
+    <div class="cart">
+        <div class="divider"></div>
+        <div class="cart-item" *ngFor="let product of products; let i = index">
+            <div class="item-info">
+                <span class="item-quantity"> {{ getQuantity(i) }} </span>
+                <span class="item-name"> {{ product.name }} </span>
+                <span class="item-price"> {{ product.price * getQuantity(i) | currency }} </span>
+                <span class="item-color"> {{ getColor(i) }} </span>
+            </div>
+            <div class="item-quantity">
+                <button (click)="increment(i)"><i class="fa fa-plus"></i></button>
+                <button (click)="decrement(i)"><i class="fa fa-minus"></i></button>
+            </div>
+            <div class="remove-item">
+                <button (click)="remove(i)"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="checkout">
+            <div class="total">
+                <span class="total-title">Total:</span>
+                <span class="total-price">{{ getTotal() | currency }}</span>
+            </div>
+            <button class="checkout-button" (click)="placeOrder()">Checkout</button>
+    </div>
+</div>

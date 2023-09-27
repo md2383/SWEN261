@@ -1,0 +1,162 @@
+/* Container */
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.review-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Title */
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #369;
+}
+
+.product {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.user-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #000;
+    text-align: center;
+}
+
+.product-info {
+    display: flex;
+    justify-content: column;
+    margin: 20px;
+}
+
+/* Image */
+
+img {
+    display: block;
+    margin-right: auto;
+    width: 30%;
+    height: 30%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Rating */
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating-title {
+    margin-top: 12px;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.rate {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-left: auto;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+/* Review */
+
+.review {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.review label {
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.review textarea {
+    display: block;
+    width: 95.6%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #000;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+
+/* Submit Button */
+
+.submitBtn {
+    display: block;
+    margin-left: auto;
+    background-color: #e8e8e8;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-top: 55px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.submitBtn:hover {
+    background-color: #42545C;
+    color: #fff;
+}

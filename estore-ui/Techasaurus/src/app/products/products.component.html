@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="add-product">
+    <h2>Add New Product</h2>
+    <div class="add-product-form">
+      <label for="new-product">Product name: </label>
+      <input id="new-product" #productName />
+      <label for="number">Price: </label>
+      <input type="number" [(ngModel)]="price">
+      <label for="number">Quantity: </label>
+      <input type="number" [(ngModel)]="quantity">
+
+      <!-- Add a dropdown to select product type -->
+      <label for="product-type">Product Type: </label>
+
+      <select class="productType" [(ngModel)]="productType">
+        <option value="" disabled selected>-- Select a product type --</option>
+        <option value="MOUSE">Mouse</option>
+        <option value="KEYBOARD">Keyboard</option>
+        <option value="HEADSET">Headset</option>
+        <option value="MIC">Mic</option>
+        <option value="CONTROLLER">Controller</option>
+        <option value="SPEAKER">Speaker</option>
+        <option value="WEBCAM">Webcam</option>
+      </select>
+
+      <label for="product-imageURL">Add imageURL:</label>
+      <input id="product-imageURL" [(ngModel)]="imageURL" placeholder="imageURL">
+      <p></p>
+
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="add(productName.value, price, quantity, productType, imageURL); productName.value=''; price=0; quantity=0;">Add Product</button>
+    </div>
+  </div>
+  <div class="products-list">
+    <h3>List of all Products</h3>
+    <ul class="products">
+      <li *ngFor="let product of products">
+        <a routerLink="/edit/{{product.id}}">
+          <span class="badge">{{product.id}}</span> {{product.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

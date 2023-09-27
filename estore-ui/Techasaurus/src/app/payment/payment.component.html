@@ -1,0 +1,109 @@
+<div class="container">
+    <!-- left-side navbar -->
+    <div class="left-side-navbar">
+        <div class="left-navbar-item">
+            <a routerLink="/account" routerLinkActive="active"><i class="fa fa-user"></i> Account</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/payment" routerLinkActive="active"><i class="fa fa-credit-card"></i> Payment Info</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/address" routerLinkActive="active"><i class="fa fa-map-marker"></i> Address</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/order-history" routerLinkActive="active"><i class="fa fa-history"></i> Order History</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/dashboard">Go Back</a>
+        </div>
+    </div>
+
+    <!-- Payment Form -->
+
+    <div class="paymentForm">
+        <ng-container *ngIf="check(); else paymentexists">
+            <div class="title">
+                <h2>Payment</h2>
+            </div>
+            <form class="form" [formGroup]="paymentForm" (ngSubmit)="updatePayment()">
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="cardNumber" placeholder="Card Number" required>
+                    <label for="cardNumber" class="label">Card Number</label>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="cardHolder" placeholder="Card Holder Name"
+                        required>
+                    <label for="cardHolder" class="label">Card Holder Name</label>
+                </div>
+
+                <div class="inputContainer">
+                    <div>
+                        <select class="month" formControlName="expirationMonthDate" placeholder="MM" required>
+                            <option value="" disabled selected>-- Select Month --</option>
+                            <option value=01>January</option>
+                            <option value=02>February</option>
+                            <option value=03>March</option>
+                            <option value=04>April</option>
+                            <option value=05>May</option>
+                            <option value=06>June</option>
+                            <option value=07>July</option>
+                            <option value=08>August</option>
+                            <option value=09>September</option>
+                            <option value=10>October</option>
+                            <option value=11>November</option>
+                            <option value=12>December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select class="year" formControlName="expirationYearDate" placeholder="YYYY" required>
+                            <option value="" disabled selected>-- Select Year --</option>
+                            <option value=2023>2023</option>
+                            <option value=2024>2024</option>
+                            <option value=2025>2025</option>
+                            <option value=2026>2026</option>
+                            <option value=2027>2027</option>
+                            <option value=2028>2028</option>
+                            <option value=2029>2029</option>
+                            <option value=2030>2030</option>
+                            <option value=2031>2031</option>
+                            <option value=2032>2032</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <input type="text" class="input" formControlName="cvv" placeholder="CVV" required>
+                    <label for="cvv" class="label">CVV</label>
+                </div>
+
+                <button type="submit" class="submitBtn">Submit</button>
+            </form>
+        </ng-container>
+
+        <!-- Payment Infomation -->
+
+        <ng-template #paymentexists>
+            <div class="payment-container">
+                <div class="title">
+                    <h2>Payment Information</h2>
+                </div>
+                <div class="payment">
+                    <div class="payment-info-item">
+                        <span class="payment-info-item-label">Card Holder Name:</span>
+                        <span class="payment-info-item-value">{{account?.payment?.cardHolder}}</span>
+                    </div>
+                    <div class="payment-info-item">
+                        <span class="payment-info-item-label">Card Number:</span>
+                        <span class="payment-info-item-value">{{account?.payment?.cardNumber}}</span>
+                    </div>
+                    <div class="payment-info-item">
+                        <span class="payment-info-item-label">Expiration Date:</span>
+                        <span class="payment-info-item-value">{{account?.payment?.expDate}}</span>
+                    </div>
+                    <button class="delete" (click)="deletePayment()">Delete</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

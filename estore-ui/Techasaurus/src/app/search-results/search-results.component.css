@@ -1,0 +1,244 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /*
+  * Featured Products
+  */
+  
+  .featured-products {
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+  }
+  .prev{
+    background-color: black;
+  }
+  .next{
+    background-color: black;
+  }
+  .featured-products .slideshow-container {
+    position: relative;
+    max-width: 1200px;
+    height: auto;
+    max-height: 500px;
+    width: 100%;
+  }
+  
+  .featured-products .mySlides {
+    display: none;
+  }
+  
+  .featured-products .product-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+    max-width: fit-content;
+    max-height: fit-content;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .featured-products .product-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .featured-products .product-price {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .featured-products .btn {
+    background-color: #e0e0e0;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .featured-products .btn:hover {
+    background-color: #ccc;
+  }
+  
+  .featured-products .prev,
+  .featured-products .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    z-index: 1;
+  }
+  
+  .featured-products .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .featured-products .prev:hover,
+  .featured-products .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .featured-products .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .featured-products .active,
+  .featured-products .dot:hover {
+    background-color: #717171;
+  }
+  
+  .featured-products img {
+    width: 500px;
+    height: 500px;
+    object-fit: fill;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: self-end;
+  }
+  
+  /*
+    * first part of the html's css
+    */
+  .title-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    font-weight: bolder;
+    font-size: 50px;
+    margin: auto 0 0;
+    align-self: center;
+    align-items: center;
+  }
+  
+  .divider {
+    height: 1px;
+    margin: 10px auto;
+    background-color: #808080;
+    width: 80%;
+  }
+  
+  .title-container h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #555;
+  }
+  
+  /*
+    * Second part of the html's css
+    */
+  .products-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .products-menu .product-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 250px;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .products-menu .product-card:hover .product-image img {
+    transform: scale(1.1);
+  }
+  
+  .products-menu .product-card:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .products-menu .product-image {
+    height: 300px;
+    /* set a fixed height for all image boxes */
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+  }
+  
+  .products-menu img {
+    width: 100%;
+    object-fit: fill;
+    /* make the image fill the container with a little bit of space around it */
+  }
+  
+  .products-menu .product-info {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .products-menu .product-name {
+    font-weight: bolder;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .products-menu .product-price {
+    font-weight: bold;
+    font-style: italic;
+    color: #6c7bff;
+    margin-top: 5px;
+  }
+  
+  .products-menu a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }

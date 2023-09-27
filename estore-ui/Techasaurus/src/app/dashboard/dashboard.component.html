@@ -1,0 +1,179 @@
+<!-- Feature Products -->
+
+<div class="feature-slideshow">
+  <div class="title">
+    <h1>Featured Products</h1>
+  </div>
+  <div class="slideshow-container">
+    <div class="products">
+
+      <div class="slide-card">
+        <div class="slide-image">
+          <img src="{{ recentProducts[0].imageURL }}" alt="{{
+            recentProducts[0].name }}">
+        </div>
+        <div class="slide-info">
+          <div class="slide-name">{{recentProducts[0].name}}</div>
+          <section class="slide-price">{{'$' + recentProducts[0].price}}</section>
+          <section class="slide-description">{{recentProducts[0].description}}</section>
+          <button class="slide-btn" routerLink="/detail/{{recentProducts[0].id}}">More</button>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-image">
+          <img src="{{ recentProducts[1].imageURL }}" alt="{{
+            recentProducts[1].name }}">
+        </div>
+        <div class="slide-info">
+          <div class="slide-name">{{recentProducts[1].name}}</div>
+          <section class="slide-price">{{'$' + recentProducts[1].price}}</section>
+          <section class="slide-description">{{recentProducts[1].description}}</section>
+          <button class="slide-btn" routerLink="/detail/{{recentProducts[1].id}}">More</button>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-image">
+          <img src="{{ recentProducts[2].imageURL }}" alt="{{
+            recentProducts[2].name }}">
+        </div>
+        <div class="slide-info">
+          <div class="slide-name">{{recentProducts[2].name}}</div>
+          <section class="slide-price">{{'$' + recentProducts[2].price}}</section>
+          <section class="slide-description">{{recentProducts[2].description}}</section>
+          <button class="slide-btn" routerLink="/detail/{{recentProducts[2].id}}">More</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dots">
+      <span class="dot" (click)="currentSlide(1)"></span>
+      <span class="dot" (click)="currentSlide(2)"></span>
+      <span class="dot" (click)="currentSlide(3)"></span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Product Menu -->
+
+<h3>Keyboards</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('KEYBOARD')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Mice</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('MOUSE')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Headsets</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('HEADSET')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Microphones</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('MIC')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Controllers</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('CONTROLLER')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Speakers</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('SPEAKER')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<h3>Webcams</h3>
+<hr>
+<div class="products-menu">
+  <a *ngFor="let product of getFilteredProducts('WEBCAM')"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>

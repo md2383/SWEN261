@@ -1,0 +1,82 @@
+<div class="container">
+    <!-- left-side navbar -->
+    <div class="left-side-navbar">
+        <div class="left-navbar-item">
+            <a routerLink="/account" routerLinkActive="active"><i class="fa fa-user"></i> Account</a>
+        </div>
+
+        <ng-container *ngIf="!isAdmin(); else admin">
+            <div class="left-navbar-item">
+                <a routerLink="/payment" routerLinkActive="active"><i class="fa fa-credit-card"></i> Payment Info</a>
+            </div>
+            <div class="left-navbar-item">
+                <a routerLink="/address" routerLinkActive="active"><i class="fa fa-map-marker"></i> Address</a>
+            </div>
+            <div class="left-navbar-item">
+                <a routerLink="/order-history" routerLinkActive="active"><i class="fa fa-history"></i> Order History</a>
+            </div>
+        </ng-container>
+
+        <ng-template #admin>
+            <div class="left-navbar-item">
+                <a routerLink="/users" routerLinkActive="active"><i class="fa fa-users"></i> Users</a>
+            </div>
+        </ng-template>
+
+        <div class="left-navbar-item">
+            <a routerLink="/dashboard">Go Back</a>
+        </div>
+    </div>
+
+    <div class="account-container">
+        <div class="title">
+            <h2>Account</h2>
+        </div>
+
+        <div class="account">
+            <!-- Profile picture -->
+
+            <div class="profile-picture-container">
+                <img src="{{getNewProfilePicture()}}" alt="{{ account?.username }} has no profile picture" width="200"
+                    height="200">
+            </div>
+
+            <div class="profile-picture-options">
+                <button (click)="toggleProfilePictureInput()" class="profile-picture-button"><i
+                        class="fa fa-pencil"></i></button>
+                <div class="profile-picture-input-container" [hidden]="!showProfilePictureInput">
+                    <input type="text" [(ngModel)]="newProfile" class="profile-picture-input">
+                    <button (click)="changeProfilePicture();" class="profile-picture-button"><i
+                            class="fa fa-check"></i></button>
+                </div>
+            </div>
+
+            <!-- Account information -->
+            <div class="account-info-container">
+                <div class="account-info-item">
+                    <span class="account-info-item-label">Username:</span>
+                    <span class="account-info-item-value">{{account?.username}}</span>
+                </div>
+                <div class="account-info-item">
+                    <span class="account-info-item-label">Email:</span>
+                    <span class="account-info-item-value">{{account?.email}}</span>
+                </div>
+                <div class="account-info-item">
+                    <span class="account-info-item-label">First Name:</span>
+                    <span class="account-info-item-value">{{account?.firstName}}</span>
+                </div>
+                <div class="account-info-item">
+                    <span class="account-info-item-label">Last Name:</span>
+                    <span class="account-info-item-value">{{account?.lastName}}</span>
+                </div>
+            </div>
+
+            <!-- Option to logout, change password, or delete account -->
+            <div class="account-options">
+                <button (click)="logout()">Logout</button>
+                <button (click)="update()">Change Password</button>
+                <button class="delete" (click)="delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

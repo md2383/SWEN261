@@ -1,0 +1,9 @@
+HTTP/1.1 404 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 06 Apr 2023 08:30:32 GMT
+
+{"timestamp":1680769832451,"status":404,"error":"Not Found","message":"No message available","path":"/account/cart/5/add/"}

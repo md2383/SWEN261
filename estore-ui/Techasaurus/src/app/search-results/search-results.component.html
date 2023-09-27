@@ -1,0 +1,16 @@
+<h3>You searched for: {{termString}}</h3>
+<div class="divider"></div>
+<div class="products-menu">
+  <a *ngFor="let product of getAllProducts()"
+    routerLink="/detail/{{product.id}}">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{product.imageURL}}" alt="{{product.name}}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">{{product.name}}</div>
+        <p class="product-price">{{'$' + product.price}}</p>
+      </div>
+    </div>
+  </a>
+</div>

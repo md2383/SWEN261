@@ -1,0 +1,16 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+
+<div class="search-box">
+    <input class="search-txt" type="text" name="" #searchBox (input)="search(searchBox.value)" (keyup.enter)="goSearch(searchBox.value)" placeholder="Search for Product">
+    <a class="search-btn"><i class="fa fa-search"></i></a>
+
+    <nav class="result">
+        <ul class="product-results">
+            <li *ngFor="let product of products$ | async" >
+                <a routerLink="/detail/{{ product.id }}">
+                    {{product.name}}
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

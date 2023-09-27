@@ -1,0 +1,40 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+<div class="header-nav">
+  <div class="logo">
+    <h1>{{ title }}</h1>
+    <img src="https://th.bing.com/th/id/OIP.Nh0ADG8--j7jvwefOkUmjQHaHa?w=173&h=180&c=7&r=0&o=5&dpr=2.5&pid=1.7" alt="Logo">
+  </div>
+
+  <div class="links">
+    <a routerLink="/dashboard"><i class="fa fa-home fa-fw"></i> Dashboard</a>
+    <ng-container *ngIf="isAdmin()">
+      <a routerLink="/products"><i class="fa fa-cubes fa-fw"></i> Inventory</a>
+    </ng-container>
+  </div>
+
+  <div class="search">
+    <app-product-search></app-product-search>
+  </div>
+
+  <div class="account">
+    <ng-container *ngIf="isLoggedIn() && !isAdmin();">
+      <a routerLink="/shopping-cart"><i class="fa fa-shopping-cart fa-fw"></i></a>
+    </ng-container>
+  </div>
+
+  <div class="account">
+    <ng-container *ngIf="!isLoggedIn(); else accountLinks">
+      <a routerLink="/login" class="login"><i class="fa fa-sign-in fa-fw"></i> Login</a>
+    </ng-container>
+  </div>
+  <div class="account">
+    <ng-template #accountLinks>
+      <a routerLink="/account"><i class="fa fa-user fa-fw"></i> Account</a>
+    </ng-template>
+  </div>
+</div>
+
+<hr>
+
+<router-outlet></router-outlet>

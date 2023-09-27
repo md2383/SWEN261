@@ -1,0 +1,38 @@
+<div class="container">
+    <!-- left-side navbar -->
+    <div class="left-side-navbar">
+        <div class="left-navbar-item">
+            <a routerLink="/account" routerLinkActive="active"><i class="fa fa-user"></i> Account</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/payment" routerLinkActive="active"><i class="fa fa-credit-card"></i> Payment Info</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/address" routerLinkActive="active"><i class="fa fa-map-marker"></i> Address</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/order-history" routerLinkActive="active"><i class="fa fa-history"></i> Order History</a>
+        </div>
+        <div class="left-navbar-item">
+            <a routerLink="/dashboard">Go Back</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="title">
+            <h2>Order History</h2>
+        </div>
+        <div class="order-history">
+            <ul class="products">
+                <li *ngFor="let product of products; let i = index">
+                    <div class="product-info">
+                        <span class="product-quantity">{{ getQuantity(i) }}</span>
+                        <span class="product-name">{{ product.name }}</span>
+                        <span class="product-price">{{ product.price * getQuantity(i) | currency }}</span>
+                        <button (click)="review(product.id)">Review</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

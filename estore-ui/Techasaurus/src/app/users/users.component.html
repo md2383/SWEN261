@@ -1,0 +1,56 @@
+<div class="container">
+    <!-- left-side navbar -->
+    <div class="left-side-navbar">
+        <div class="left-navbar-item">
+            <a routerLink="/account" routerLinkActive="active"><i class="fa
+                    fa-user"></i> Account</a>
+        </div>
+
+        <ng-container *ngIf="!isAdmin(); else admin">
+            <div class="left-navbar-item">
+                <a routerLink="/payment" routerLinkActive="active"><i class="fa
+                        fa-credit-card"></i> Payment Info</a>
+            </div>
+            <div class="left-navbar-item">
+                <a routerLink="/address" routerLinkActive="active"><i class="fa
+                        fa-map-marker"></i> Address</a>
+            </div>
+            <div class="left-navbar-item">
+                <a routerLink="/order-history" routerLinkActive="active"><i
+                        class="fa fa-history"></i> Order History</a>
+            </div>
+        </ng-container>
+
+        <ng-template #admin>
+            <div class="left-navbar-item">
+                <a routerLink="/users" routerLinkActive="active"><i class="fa
+                        fa-users"></i> Users</a>
+            </div>
+        </ng-template>
+
+        <div class="left-navbar-item">
+            <a routerLink="/dashboard">Go Back</a>
+        </div>
+    </div>
+
+    <div class="user-container">
+        <div class="title">
+            <h2>Users</h2>
+        </div>
+
+        <div class="account">
+            <ul class="accounts">
+                <li *ngFor="let user of users">
+                    <div class="divider"></div>
+                    <div class="user-info">
+                        <span class="user-profile-picture"><img src="{{ user.profilePicture }}" alt="{{ user.username}}"></span>
+                        <span class="username-name">{{ user.username }}</span>
+                        <span class="user-email">{{ user.email }}</span>
+                        
+                        <button class="removeButton" (click)="delete(user.id)"><i class="fa fa-trash"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    rel="stylesheet" />
+
+<div class="container">
+    <div class="review-container">
+        <div class="title">
+            <h2>Review</h2>
+        </div>
+
+        <div class="product">
+            <h3 class="user-title">{{ product?.name }} -- {{
+                account?.firstName}} {{ account?.lastName }}</h3>
+            <div class="product-info">
+                <img src= {{product?.imageURL}} alt="{{product?.name}}">
+                <form class="form" [formGroup]="reviewForm">
+                    <div class="rating">
+                        <span class="rating-title">Rating</span>
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5"
+                                formControlName="selectedValue" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4"
+                                formControlName="selectedValue" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3"
+                                formControlName="selectedValue" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2"
+                                formControlName="selectedValue" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1"
+                                formControlName="selectedValue" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <label for="product-review">Tell us how about the
+                            product:</label>
+                        <br>
+                        <textarea id="product-review" name="product-review"
+                            formControlName="review" rows="5"
+                            cols="100"></textarea>
+                    </div>
+                    <button type="submit" class="submitBtn" (click)="submitReview()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+  rel="stylesheet" />
+
+<!-- Product Details -->
+
+<div class="product-container" *ngIf="product">
+  <div class="product-imageURL">
+    <img src={{product.imageURL}} alt="{{product.name}}" width="500"
+      height="500">
+  </div>
+  <div class="product-details">
+    <h2>{{product.name}}</h2>
+
+    <div class="product-average-rating">
+      <span class="fa fa-star" [ngClass]="{'checked': averageRating()>= 1,
+        'half': averageRating() >= 0.5 && averageRating() <1, 'unchecked':
+          averageRating() <0.5}"></span>
+        <span class="fa fa-star" [ngClass]="{'checked': averageRating()>= 2,
+          'half': averageRating() >= 1.5 && averageRating() <2, 'unchecked':
+            averageRating() <1.5}"></span>
+          <span class="fa fa-star" [ngClass]="{'checked': averageRating()>= 3,
+            'half': averageRating() >= 2.5 && averageRating() <3, 'unchecked':
+              averageRating() <2.5}"></span>
+            <span class="fa fa-star" [ngClass]="{'checked': averageRating()>= 4,
+              'half': averageRating() >= 3.5 && averageRating() <4, 'unchecked':
+                averageRating() <3.5}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': averageRating()
+                === 5, 'half': averageRating()>= 4.5 && averageRating() <5,
+                  'unchecked': averageRating() <4.5}"></span>
+                <p class="average-rating-number">{{ averageRating() }}</p>
+              </div>
+
+
+
+              <p>${{product.price}}</p>
+              <p>Category:[{{product.productType}}]</p>
+              <p>{{product.description}}</p>
+              <div class="product-colors">
+                <div class="inputContainer">
+                  <div>
+                    <select class="color"
+                      (change)="onColorChange($event.target)">
+                      <option value="" disabled selected>-- Select Color --</option>
+                      <option *ngFor="let color of colors" [value]="color.name">{{
+                        color.name }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="product-stock" [ngClass]="{'out-of-stock':
+                product.quantity ===
+                0}">
+                <span>{{product.quantity}} in stock</span>
+              </div>
+              <button *ngIf="!isAdmin() && hasStock()" Type="button"
+                (click)="addToCart()">Add to Cart</button>
+              <button type="button" (click)="goBack()">Back</button>
+            </div>
+          </div>
+
+          <!-- Reviews -->
+
+          <div class="reviews-container">
+            <div class="title">
+              <h2>Reviews</h2>
+            </div>
+            <div class="review" *ngFor="let review of reviews">
+              <span class="review-userProfile"><img src="{{
+                  getAccountFromReviewId(review).profilePicture }}" alt="Does
+                  not
+                  work"></span>
+              <span class="review-userName">{{
+                getAccountFromReviewId(review).username }}</span>
+              <div class="rate">
+                <span class="fa fa-star" [ngClass]="{'checked': review.rating>=
+                  1,
+                  'unchecked': review.rating <1}"></span>
+                  <span class="fa fa-star" [ngClass]="{'checked': review.rating>=
+                    2,
+                    'unchecked': review.rating <2}"></span>
+                    <span class="fa fa-star" [ngClass]="{'checked':
+                      review.rating>=
+                      3,
+                      'unchecked': review.rating <3}"></span>
+                      <span class="fa fa-star" [ngClass]="{'checked':
+                        review.rating>= 4,
+                        'unchecked': review.rating <4}"></span>
+                        <span class="fa fa-star" [ngClass]="{'checked':
+                          review.rating ===
+                          5, 'unchecked': review.rating <5}"></span>
+                      </div>
+
+                      <span class="review-textarea">{{ review.review }}</span>
+                      <!--delete a review-->
+
+    <ng-container *ngIf="isAdmin() || (review.userid === account?.id)">
+      <button class="delete" type="button" (click)="removeReview(review)">Delete</button>
+    </ng-container>
+
+                    </div>

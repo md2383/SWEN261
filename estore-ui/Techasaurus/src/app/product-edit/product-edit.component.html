@@ -1,0 +1,70 @@
+<div class="box">
+    <div *ngIf="product">
+
+        <div class="title">
+            <h2>{{ product.name }} -- Change Details</h2>
+        </div>
+        <div class="edit-container">
+            <div class="edit-info">
+                <div class="product-name">
+                    <label for="product-name">Edit product:</label>
+                    <input id="product-name" [(ngModel)]="product.name"
+                        placeholder="name">
+
+                    <!-- select box for productType json property of product
+            <select [(ngModel)]="selectedProductType">
+            <option *ngFor="let type of ProductType" [value]="type">{{type}}</option>
+            </select> -->
+                </div>
+
+                <div class="product-price">
+                    <label for="product-name">Edit price:</label>
+                    <input id="product-price" [(ngModel)]="product.price"
+                        placeholder="price">
+                </div>
+
+                <div class="product-quantity">
+                    <!--2 buttons that increment or decrement the product quantity-->
+                    <label for="product-name">Edit quantity:</label>
+                    <button type="button" class="decrement-button" (click)="decrementQuantity()">-</button>
+                    <input id="product-quantity" [(ngModel)]="product.quantity"
+                        placeholder="quantity">
+                    <button type="button" class="increment-button" (click)="incrementQuantity()">+</button>
+                </div>
+
+                <div class="product-image">
+                    <label for="product-imageURL">Edit imageURL:</label>
+                    <input id="product-imageURL" [(ngModel)]="product.imageURL"
+                        placeholder="imageURL">
+                </div>
+
+                <div class="product-description">
+                    <label for="product-description">Edit description:</label>
+                    <textarea id="product-description" [(ngModel)]="product.description"
+                        placeholder="description"></textarea>
+                </div>
+
+                <div class="color-selection">
+                    <label for="product-color">Edit color:</label>
+                    <div class="checkbox-container">
+                        <div *ngFor="let color of colors">
+                            <input type="checkbox"
+                                id="{{color.name}}"
+                                name="{{color.name}}"
+                                [checked]="isSelectedColor(color) === true"
+                                (click)="toggleSelection(color)">
+                            <label for="{{color.name}}">{{color.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" (click)="goBack()">Back</button>
+                <button type="button" class="delete" title="delete product"
+                    (click)="delete(product)">Delete (Forever)</button>
+                <button type="button" class="save" (click)="save(product)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

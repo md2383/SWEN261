@@ -1,0 +1,37 @@
+<div class="signUpForm">
+    <form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <h2 class="title">Sign up</h2>
+        <div class="inputContainer">
+            <input type="username" class="input" formControlName="username" placeholder="Username" required>
+            <label for="username" class="label">Username</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="email" class="input" formControlName="email" placeholder="Email" required>
+            <label for="email" class="label">Email</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="firstName" class="input" formControlName="firstName" placeholder="First Name" required>
+            <label for="firstName" class="label">First Name</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="lastName" class="input" formControlName="lastName" placeholder="Last Name" required>
+            <label for="lastName" class="label">Last Name</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="password" class="input" formControlName="password" placeholder="Password" required>
+            <label for="password" class="label">Password</label>
+        </div>
+
+        <div class="inputContainer">
+            <input type="password" class="input" formControlName="confirmPassword" placeholder="Confirm Password" required>
+            <label for="confirmPassword" class="label">Confirm Password</label>
+        </div>
+
+        <button type="submit" class="submitBtn">Submit</button>
+        <span>Already have an account? <a routerLink="/login">Login</a></span>
+    </form>
+</div>

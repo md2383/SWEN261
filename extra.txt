@@ -1,0 +1,54 @@
+---------------------------------------------------
+<div class="product-reviews">
+    <h3>Reviews</h3>
+    <div *ngFor="let review of reviews; let i=index">
+      <p>{{ review.user }} - {{ review.date | date }}</p>
+      <p>Rating: {{ review.rating }}</p>
+      <p>{{ review.comment }}</p>
+      <button type="button" (click)="deleteReview(i)">Delete</button>
+    </div>
+    <form>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" [(ngModel)]="newReview.user">
+      </div>
+      <div>
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" min="1" max="5" [(ngModel)]="newReview.rating">
+      </div>
+      <div>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" [(ngModel)]="newReview.comment"></textarea>
+      </div>
+      <button type="button" (click)="addReview()">Add Review</button>
+    </form>
+</div>
+-----------------------------------------------------------------------
+
+addReview(): void {
+    // Add a new review to the reviews array
+    this.newReview.date = this.newReview.date ? this.newReview.date : new Date();
+    this.reviews.push(this.newReview);
+    localStorage.setItem('reviews', JSON.stringify(this.reviews));
+    this.newReview = {
+      user: '',
+      date: new Date(),
+      rating: 5,
+      comment: ''
+    };
+  }
+  
+  deleteReview(index: number) {
+    this.reviews.splice(index, 1);
+    localStorage.setItem('reviews', JSON.stringify(this.reviews));
+  }
+------------------------------------------------------------------------------
+reviews = [
+    { user: 'Sponsor', date: new Date(), rating: 5, comment: 'This is a great product! Not biased at all.' },
+  ];
+  newReview = {
+    user: '',
+    date: new Date(),
+    rating: 5,
+    comment: ''
+  };

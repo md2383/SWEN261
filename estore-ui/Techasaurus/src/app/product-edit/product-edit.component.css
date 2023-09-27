@@ -1,0 +1,272 @@
+.box {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #369;
+}
+
+.edit-container {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    list-style: none;
+    padding: 20px;
+}
+
+.edit-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-name label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.product-name input {
+    height: 15px;
+    border: #000 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.product-price {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-price label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.product-price input {
+    height: 15px;
+    border: #000 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.product-quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-quantity label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.product-quantity input {
+    height: 15px;
+    border: #000 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+button.decrement-button {
+    background-color: #e8e8e8;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    margin-right: 10px;
+    padding: 5px 10px;
+    height: 40px;
+}
+
+button.decrement-button:hover {
+    background-color: #42545C;
+    color: #fff;
+}
+
+button.increment-button {
+    background-color: #e8e8e8;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    margin-left: 10px;
+    padding: 5px 10px;
+    height: 40px;
+}
+
+button.increment-button:hover {
+    background-color: #42545C;
+    color: #fff;
+}
+
+.product-image {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-image label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.product-image input {
+    height: 15px;
+    border: #000 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.product-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-description label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.product-description textarea {
+    height: 60px;
+    width: 95%;
+    border: #000 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons button[type="button"] {
+    padding: 10px;
+    background-color: #e8e8e8;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.buttons button[type="button"]:hover {
+    background-color: #42545C;
+    color: #fff;
+}
+
+.buttons button.delete {
+    background-color: #dc3545;
+    color: #fff;
+    margin-left: auto;
+}
+
+.buttons button.delete:hover {
+    background-color: #c82333;
+}
+
+.color-selection label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    display: flex;
+    border: #000 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    width: 95%;
+}
+
+.checkbox-container label {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container input[type="checkbox"]+label {
+    position: relative;
+    padding-left: 30px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.checkbox-container input[type="checkbox"]:checked+label:before {
+    content: "\2713";
+    color: #fff;
+    background-color: #42545C;
+    border: #369 1px solid;
+    text-align: center;
+    line-height: 18px;
+}
