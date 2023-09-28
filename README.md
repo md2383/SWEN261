@@ -7,7 +7,6 @@ An online E-store system built in Java 11=> and Angular, Maven, HTML, CSS
 - Austyn Wright, arw5395
 - Ryan Yam, rty2051
 - Sherman Zhou, sz5737
-- Simon Kadesh, sgk4203
 
 
 ## Prerequisites
